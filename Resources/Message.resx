@@ -120,6 +120,12 @@
   <data name="X0_E_OBRIGATORIO" xml:space="preserve">
     <value>{0} é obrigatório</value>
   </data>
+  <data name="X0_E_OBRIGATORIO_E_DEVE_CONTER_X1_CARACTERES" xml:space="preserve">
+    <value>{0} é obrigatório e deve conter {1} caracteres.</value>
+  </data>
+  <data name="X0_E_OBRIGATORIO_E_DEVE_CONTER_X1_E_X2_CARACTERES" xml:space="preserve">
+    <value>{0} é obrigatório e deve conter {1} e {2} caracteres.</value>
+  </data>
   <data name="X0_INVALIDA" xml:space="preserve">
     <value>{0} inválida.</value>
   </data>
