@@ -46,17 +46,22 @@ namespace XGame.Domain.Services
         public AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request)
         {
 
-            var email = new Email("thiago@cunha.com");
-            Jogador jogador = new Jogador(email, "123");
-            
+            if (request == null)
+            {
+                AddNotification("AutenticarJogadorRequest", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarJogadorResponse"));
+            }
+
+            var email = new Email(request.Email);
+            Jogador jogador = new Jogador(email, request.Senha);
+
             AddNotifications(jogador, email);
 
             if (jogador.IsInvalid())
             {
-                AddNotification("AutenticarJogador", Message.X0_E_OBRIGATORIO.ToFormat("AutenticarJogadorRequest"));
+                return null;
             }
             
-            var response = _repositoryJogador.AutenticarJogador(request);
+            var response = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
             return response;
         }
 
